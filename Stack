@@ -1,0 +1,68 @@
+class Stack {
+int maxSize;
+int top;
+int[] stackArray;
+Stack(int size) {
+maxSize = size;
+stackArray = new int[maxSize];
+top = -1;
+}
+void push(int value) {
+if (top == maxSize - 1) {
+System.out.println("Stack Overflow!");
+} else {
+stackArray[++top] = value;
+System.out.println(value + " pushed onto stack.");
+}
+}
+int pop() {
+if (top == -1) {
+System.out.println("Stack Underflow!");
+return -1;
+} else {
+return stackArray[top--];
+}
+}
+int peek() {
+if (top == -1) {
+System.out.println("Stack is empty!");
+return -1;
+} else {
+return stackArray[top];
+}
+}
+boolean isEmpty() {
+return (top == -1);
+}
+
+void display() {
+if (top == -1) {
+System.out.println("Stack is empty!");
+} else {
+System.out.print("Stack: ");
+for (int i = 0; i <= top; i++) {
+System.out.print(stackArray[i] + " ");
+}
+System.out.println();
+}
+}
+}
+
+public class Main {
+public static void main(String[] args) {
+Stack stack = new Stack(5);
+stack.push(10);
+stack.push(20);
+stack.push(30);
+stack.display();
+System.out.println("Top element is: " + stack.peek());
+System.out.println("Popped: " + stack.pop());
+stack.display();
+System.out.println("Popped: " + stack.pop());
+stack.display();
+System.out.println("Popped: " + stack.pop());
+stack.display();
+System.out.println("Popped: " + stack.pop());
+stack.display();
+}
+}
